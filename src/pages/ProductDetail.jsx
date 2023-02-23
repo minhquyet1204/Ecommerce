@@ -16,10 +16,9 @@ const ProductDetail = () => {
     };
     fetchData();
   }, [params.id]);
-  console.log(products);
 
   return (
-    <section className="pt-32 pb-12 lg:py-32 h-screen">
+    <section className="pt-32 pb-12  lg:py-32 min-h-screen">
       <div className="container mx-auto ">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0">
@@ -39,13 +38,16 @@ const ProductDetail = () => {
               $ {products.price}
             </div>
 
-            <p className="mb-8 ">{products.description}</p>
-            <button
-              className="bg-primary py-3 px-6 text-white"
-              onClick={() => dispatch(addProduct({ ...products, amount: 1 }))}
-            >
-              ADD TO CART
-            </button>
+            <div className="flex flex-col-reverse lg:flex-col items-center lg:items-start">
+              <p className="mb-4 mt-4">{products.description}</p>
+
+              <button
+                className="bg-primary py-3 text-white w-36"
+                onClick={() => dispatch(addProduct({ ...products, amount: 1 }))}
+              >
+                ADD TO CART
+              </button>
+            </div>
           </div>
         </div>
       </div>
