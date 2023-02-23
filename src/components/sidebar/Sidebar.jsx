@@ -51,7 +51,7 @@ const Sidebar = () => {
         <div className=" flex flex-col gap-y-3 py-4 mt-4">
           <div className="flex w-full justify-between items-center">
             <div className="uppercase font-semibold">
-              <span className="mr-2">Total: {totalAmount.toFixed(2)}</span>
+              <span className="mr-2">Total: {totalAmount.toFixed(2)}$</span>
             </div>
 
             <div
