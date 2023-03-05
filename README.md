@@ -1,6 +1,6 @@
 # Introduction
 
-- This is Restaurant landing page project with React , Redux Toolkit
+- This is Ecommerce project with React , Redux Toolkit
 
 # Page
 
@@ -16,3 +16,4 @@ Built using:
 
 - Front-end library: React
 - JavaScript library: Redux , Redux Toolkit
+- React Router
