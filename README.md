@@ -15,4 +15,4 @@
 Built using:
 
 - Front-end library: React
-- React library: Redux , Redux Toolkit
+- JavaScript library: Redux , Redux Toolkit
