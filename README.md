@@ -1,6 +1,6 @@
 # Introduction
 
-- This is Restaurant landing page project with React , Framer Motion
+- This is Restaurant landing page project with React , Redux Toolkit
 
 # Page
 
