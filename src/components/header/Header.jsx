@@ -14,11 +14,16 @@ const Header = () => {
     });
   }, []);
 
+  const totalAmount = products.reduce((first, total) => {
+    total = first + total.amount;
+
+    return total;
+  }, 0);
   return (
     <header
       className={`${
         navScoll && "duration-300 shadow-lg bg-white"
-      } fixed w-full z-10 transition duration-300 h-14`}
+      } fixed w-full z-10 transition duration-500 h-20`}
     >
       <div className="flex container mx-auto items-center justify-between h-full">
         <Link to="/">
@@ -33,8 +38,8 @@ const Header = () => {
         >
           <BsBag className="text-2xl" />
 
-          <div className="bg-red-500 absolute -right-2 -bottom-1 text-sm w-4 h-4 text-white rounded-full flex justify-center items-center ">
-            {products.length}
+          <div className="bg-red-500 absolute -right-2 -bottom-2 text-sm w-5 h-5 text-white rounded-full flex justify-center items-center ">
+            {totalAmount}
           </div>
         </div>
       </div>

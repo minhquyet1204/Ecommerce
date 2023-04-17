@@ -14,8 +14,14 @@ const Sidebar = () => {
     dispatch(clearProduct());
   };
 
-  const totalAmount = cartItem.reduce((accumulator, item) => {
+  const totalPrice = cartItem.reduce((accumulator, item) => {
     return accumulator + item.price * item.amount;
+  }, 0);
+
+  const totalAmount = cartItem.reduce((first, total) => {
+    total = first + total.amount;
+
+    return total;
   }, 0);
   return (
     <div
@@ -25,7 +31,7 @@ const Sidebar = () => {
     >
       <div className="flex items-center justify-between py-6 border-b">
         <div className="uppercase text-sm font-semibold">
-          Shopping Bag ({cartItem.length})
+          Shopping Bag ({totalAmount})
         </div>
         <div
           className="cursor-pointer w-8 h-8 flex justify-center items-center"
@@ -51,7 +57,7 @@ const Sidebar = () => {
         <div className=" flex flex-col gap-y-3 py-4 mt-4">
           <div className="flex w-full justify-between items-center">
             <div className="uppercase font-semibold">
-              <span className="mr-2">Total: {totalAmount.toFixed(2)}$</span>
+              <span className="mr-2">Total: {totalPrice.toFixed(2)}$</span>
             </div>
 
             <div

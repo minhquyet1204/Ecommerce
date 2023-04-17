@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../store/productSlice";
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductDetail = () => {
   const [products, setProducts] = useState([]);
   const params = useParams();
@@ -16,6 +18,15 @@ const ProductDetail = () => {
     };
     fetchData();
   }, [params.id]);
+
+  const notify = () => {
+    toast.success("Add to basket succeeded! Check out your cart");
+  };
+
+  const handleAdd = () => {
+    notify();
+    dispatch(addProduct({ ...products, amount: 1 }));
+  };
 
   return (
     <section className="pt-32 pb-12  lg:py-32 min-h-screen">
@@ -43,7 +54,7 @@ const ProductDetail = () => {
 
               <button
                 className="bg-primary py-3 text-white w-36"
-                onClick={() => dispatch(addProduct({ ...products, amount: 1 }))}
+                onClick={handleAdd}
               >
                 ADD TO CART
               </button>
@@ -51,6 +62,12 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer
+        autoClose={1500}
+        pauseOnHover={false}
+        pauseOnFocusLoss={false}
+      />
     </section>
   );
 };
