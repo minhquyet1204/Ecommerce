@@ -3,11 +3,19 @@ import { BsPlus, BsEyeFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/productSlice";
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const handleAddToCart = (product) => {
     const updateCartItem = { ...product, amount: 1 };
     dispatch(addProduct(updateCartItem));
+
+    notify();
+  };
+
+  const notify = () => {
+    toast.success("Add to basket succeeded! Check out your cart");
   };
   return (
     <div>
@@ -45,6 +53,12 @@ const ProductItem = ({ product }) => {
         <div className="font-semibold my-1">{product.title}</div>
       </Link>
       <div className="font-semibold">$ {product.price}</div>
+
+      <ToastContainer
+        autoClose={1500}
+        pauseOnHover={false}
+        pauseOnFocusLoss={false}
+      />
     </div>
   );
 };
